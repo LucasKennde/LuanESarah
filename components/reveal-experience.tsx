@@ -33,7 +33,6 @@ function Scene({ stage, ended }: { stage: TimelineItem; ended: boolean }) {
   if (ended || ['reveal', 'nameIntro', 'name', 'final'].includes(stage.kind)) return <RevealScene stage={stage} ended={ended} />;
   if (stage.kind === 'countdown') return <CountdownScene stage={stage} />;
   if (stage.kind === 'preparation') return <PreparationScene stage={stage} />;
-  if (stage.kind === 'pause') return <motion.div className="visual-pause" {...sceneMotion} />;
   return <StoryScene stage={stage} />;
 }
 function AudioController({ paused, onToggle }: { paused: boolean; onToggle: () => void }) {
