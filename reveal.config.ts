@@ -9,7 +9,8 @@ export const revealConfig = {
     { id: 'memory-3', src: '/photos/memoria-03.jpg', start: 43, end: 63, placement: 'memory-left-top', objectPosition: '27% 50%' },
     { id: 'memory-4', src: '/photos/memoria-04.jpg', start: 63, end: 83, placement: 'memory-right-bottom', objectPosition: '50% 28%' },
     { id: 'memory-5', src: '/photos/memoria-05.jpg', start: 83, end: 103, placement: 'memory-left', objectPosition: '50% 34%' },
-    { id: 'memory-6', src: '/photos/memoria-06.jpg', start: 103, end: 130, placement: 'memory-right', objectPosition: '67% 38%' },
+    { id: 'memory-6', src: '/photos/memoria-06.jpg', start: 103, end: 126, placement: 'memory-right', objectPosition: '67% 38%' },
+    { id: 'ultrasound', src: '/photos/ultrassom.jpg', start: 126, end: 134, placement: 'memory-ultrasound', objectPosition: '50% 48%' },
   ],
   timeline: [
     { id: 'story-1', start: 0, kind: 'story', text: 'Algumas histórias começam sem avisar.' },
