@@ -22,6 +22,9 @@ function PreparationScene({ stage }: { stage: TimelineItem }) {
 function CountdownScene({ stage }: { stage: TimelineItem }) {
   return <motion.section className="scene countdown-scene" {...sceneMotion}><p aria-label={`Contagem: ${stage.text}`}>{stage.text}</p></motion.section>;
 }
+function ConfettiScene({ stage }: { stage: TimelineItem }) {
+  return <motion.section className="scene confetti-scene" {...sceneMotion}><p>{stage.text}</p></motion.section>;
+}
 function RevealScene({ stage, ended }: { stage: TimelineItem; ended: boolean }) {
   if (ended) return <motion.section className="scene final-scene" {...sceneMotion}><p className="final-title">Esther Lima está chegando.</p><span /><p>Uma bênção de Deus.<br />Um novo capítulo na história de Luan e Sarah.</p><small>Esse momento agora é de vocês.</small></motion.section>;
   if (stage.kind === 'reveal') return <motion.section className="scene reveal-scene" {...sceneMotion}><p>{stage.text}</p></motion.section>;
@@ -32,6 +35,7 @@ function RevealScene({ stage, ended }: { stage: TimelineItem; ended: boolean }) 
 function Scene({ stage, ended }: { stage: TimelineItem; ended: boolean }) {
   if (ended || ['reveal', 'nameIntro', 'name', 'final'].includes(stage.kind)) return <RevealScene stage={stage} ended={ended} />;
   if (stage.kind === 'countdown') return <CountdownScene stage={stage} />;
+  if (stage.kind === 'confetti') return <ConfettiScene stage={stage} />;
   if (stage.kind === 'preparation') return <PreparationScene stage={stage} />;
   return <StoryScene stage={stage} />;
 }

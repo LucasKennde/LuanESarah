@@ -48,6 +48,7 @@ h1 span { color:var(--gold); font-size:.62em; font-style:italic; }
 .preparation-scene p { font-size:clamp(33px,9vw,64px); line-height:1.15; }
 .breath-line { display:block; width:60px; height:1px; margin:34px auto 0; background:var(--gold); animation:breathe 4s ease-in-out infinite; }
 .countdown-scene p { color:#44483d; font-size:clamp(150px,55vw,380px); font-weight:400; line-height:.72; letter-spacing:-.08em; }
+.confetti-scene p { font-size:clamp(46px,13vw,92px); line-height:1.02; letter-spacing:-.045em; }
 .visual-pause { width:7px; height:7px; border-radius:50%; background:var(--gold); box-shadow:0 0 30px 10px rgba(162,140,97,.22); }
 .reveal-scene p { font-size:clamp(48px,13vw,94px); line-height:1.04; letter-spacing:-.045em; }
 .name-intro-scene p { font-size:clamp(28px,7vw,48px); font-style:italic; }
