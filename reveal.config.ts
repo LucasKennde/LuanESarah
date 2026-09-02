@@ -3,6 +3,14 @@ export const revealConfig = {
   babyName: 'Esther Lima',
   audioSrc: '/audio/revelacao.mp3',
   audioDuration: 178.608,
+  memories: [
+    { id: 'memory-1', src: '/photos/memoria-01.jpg', start: 3, end: 23, placement: 'memory-left', objectPosition: '50% 34%' },
+    { id: 'memory-2', src: '/photos/memoria-02.jpg', start: 23, end: 43, placement: 'memory-right', objectPosition: '50% 32%' },
+    { id: 'memory-3', src: '/photos/memoria-03.jpg', start: 43, end: 63, placement: 'memory-left-top', objectPosition: '27% 50%' },
+    { id: 'memory-4', src: '/photos/memoria-04.jpg', start: 63, end: 83, placement: 'memory-right-bottom', objectPosition: '50% 28%' },
+    { id: 'memory-5', src: '/photos/memoria-05.jpg', start: 83, end: 103, placement: 'memory-left', objectPosition: '50% 34%' },
+    { id: 'memory-6', src: '/photos/memoria-06.jpg', start: 103, end: 130, placement: 'memory-right', objectPosition: '67% 38%' },
+  ],
   timeline: [
     { id: 'story-1', start: 0, kind: 'story', text: 'Algumas histórias começam sem avisar.' },
     { id: 'story-2', start: 12, kind: 'story', text: 'Dois caminhos se encontraram.' },

@@ -41,6 +41,26 @@ function AudioController({ paused, onToggle }: { paused: boolean; onToggle: () =
 function ProgressBar({ progress }: { progress: number }) {
   return <div className="progress-track" role="progressbar" aria-label="Progresso da experiência" aria-valuemin={0} aria-valuemax={100} aria-valuenow={Math.round(progress)}><motion.span animate={{ width: `${progress}%` }} transition={{ duration: .2 }} /></div>;
 }
+function PhotoMemories({ currentTime }: { currentTime: number }) {
+  const memory = revealConfig.memories.find((item) => currentTime >= item.start && currentTime < item.end);
+  const rotation = memory?.placement.includes('left') ? -4 : 4;
+  return <div className="photo-memories" aria-hidden="true">
+    <AnimatePresence mode="wait">
+      {memory && <motion.figure
+        key={memory.id}
+        className={'polaroid-memory ' + memory.placement}
+        initial={{ opacity: 0, scale: .94, y: 16, rotate: rotation - 1 }}
+        animate={{ opacity: .27, scale: 1, y: 0, rotate: rotation }}
+        exit={{ opacity: 0, scale: .97, y: -12, rotate: rotation + 1 }}
+        transition={{ duration: 2.1, ease: [0.22, 1, 0.36, 1] as const }}
+      >
+        <div className="polaroid-photo">
+          <img src={memory.src} alt="" style={{ objectPosition: memory.objectPosition }} />
+        </div>
+      </motion.figure>}
+    </AnimatePresence>
+  </div>;
+}
 export function RevealExperience() {
   const timeline = useRevealTimeline();
   const isRevealed = timeline.ended || ['reveal', 'nameIntro', 'name', 'final'].includes(timeline.stage.kind);
@@ -48,6 +68,7 @@ export function RevealExperience() {
   return <main className={`experience-shell ${isRevealed ? 'is-revealed' : ''}`}>
     <audio ref={timeline.audioRef} src={revealConfig.audioSrc} preload="metadata" onEnded={timeline.onEnded} />
     <div className="ambient-light" aria-hidden="true" /><div className="grain" aria-hidden="true" />
+    {timeline.started && !isRevealed && <PhotoMemories currentTime={timeline.currentTime} />}
     <div className="floating-specks" aria-hidden="true">{Array.from({ length: 12 }, (_, i) => <i key={i} />)}</div>
     <AnimatePresence mode="wait">{!timeline.started ? <IntroScreen key="intro" onStart={timeline.start} error={timeline.audioError} /> : <Scene key={timeline.ended ? 'ended' : timeline.stage.id} stage={timeline.stage} ended={timeline.ended} />}</AnimatePresence>
     {!timeline.started && <p className="sound-note"><Volume2 size={11} /> Uma experiência com som</p>}
