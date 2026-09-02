@@ -54,7 +54,7 @@ function PhotoMemories({ currentTime }: { currentTime: number }) {
         key={memory.id}
         className={'polaroid-memory ' + memory.placement}
         initial={{ opacity: 0, scale: .94, y: 16, rotate: rotation - 1 }}
-        animate={{ opacity: .27, scale: 1, y: 0, rotate: rotation }}
+        animate={{ opacity: .32, scale: 1, y: 0, rotate: rotation }}
         exit={{ opacity: 0, scale: .97, y: -12, rotate: rotation + 1 }}
         transition={{ duration: 2.1, ease: [0.22, 1, 0.36, 1] as const }}
       >
