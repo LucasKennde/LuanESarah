@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://luanesarah.vercel.app'),
   title: 'Luan & Sarah — Um novo capítulo',
   description: 'Uma experiência criada para celebrar um novo capítulo na história de Luan e Sarah.',
   openGraph: {

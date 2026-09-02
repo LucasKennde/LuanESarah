@@ -8,7 +8,7 @@ const sceneMotion = {
   initial: { opacity: 0, y: 14, filter: 'blur(5px)' },
   animate: { opacity: 1, y: 0, filter: 'blur(0px)' },
   exit: { opacity: 0, y: -10, filter: 'blur(4px)' },
-  transition: { duration: 1.15, ease: [0.22, 1, 0.36, 1] },
+  transition: { duration: 1.15, ease: [0.22, 1, 0.36, 1] as const },
 };
 function IntroScreen({ onStart, error }: { onStart: () => void; error: boolean }) {
   return <motion.section className="intro-card" {...sceneMotion}><p className="eyebrow">Uma história para guardar</p><h1>Luan <span>&amp;</span> Sarah</h1><p className="intro-copy">Uma história de amor está prestes a ganhar um novo capítulo.</p><p className="instruction">Quando estiverem juntos, apertem o botão abaixo.</p><button type="button" className="start-button" onClick={onStart}>Começar</button>{error && <p className="audio-error" role="alert">Não foi possível iniciar o som. Toque novamente.</p>}</motion.section>;
